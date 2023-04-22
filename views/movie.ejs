@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Danh sách phim</title>
+  </head>
+  <body>
+    <h1>Danh sách phim</h1>
+    <ul>
+      <% movies.forEach(function(movie) { %>
+        <li><%= movie.title %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
