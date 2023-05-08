@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 
 router.get('/', function(req, res) {
@@ -15,12 +16,15 @@ router.post('/', function(req, res) {
       console.log(err);
     } else {
       if (foundUser) {
-        if (foundUser.password === password) {
-          req.session.user = foundUser;
-          res.redirect('/dashboard');
-        } else {
-          res.send('Sai mật khẩu!');
-        }
+        // Mã hóa mật khẩu và so sánh với mật khẩu trong cơ sở dữ liệu
+        bcrypt.compare(password, foundUser.password, function(err, result) {
+          if (result === true) {
+            req.session.user = foundUser;
+            res.redirect('/dashboard');
+          } else {
+            res.send('Sai mật khẩu!');
+          }
+        });
       } else {
         res.send('Không tìm thấy người dùng!');
       }

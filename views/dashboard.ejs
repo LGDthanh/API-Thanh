@@ -21,16 +21,16 @@
             <a class="nav-link" href="#">Quản lý phim</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Đăng xuất</a>
+            <a class="nav-link" href="/login">Đăng xuất</a>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container mt-3">
-      <h1>Quản lý phim</h1>
+      <h1>Phim mới</h1>
       <div class="row">
         <div class="col-sm-6">
-          <h2>Danh sách phim</h2>
+          
           <table class="table">
             <thead>
               <tr>
@@ -42,23 +42,31 @@
             </thead>
             <tbody>
               <tr>
-                <td>Phim 1</td>
+                <td >Phim 1</td>
                 <td>Đạo diễn 1</td>
                 <td>2022</td>
-                <td><a href="#" class="btn btn-primary">Xem</a> <a href="#" class="btn btn-danger">Xóa</a></td>
-              </tr>
-              <tr>
+        
+                <td>
+                  <a href="/movies" id="xem" data-movie-id="123" class="btn btn-primary">Xem</a>
+                  <a href="#" class="btn btn-danger">Xóa</a></td>
+                </td>
+              <tr >
                 <td>Phim 2</td>
                 <td>Đạo diễn 2</td>
                 <td>2021</td>
-                <td><a href="#" class="btn btn-primary">Xem</a> <a href="#" class="btn btn-danger">Xóa</a></td>
+                
+                <td>
+                  <a href="#" class="btn btn-primary">Xem</a>
+                  <a href="#" class="btn btn-danger">Xóa</a></td>
+                </td>
               </tr>
             </tbody>
           </table>
+        
         </div>
         <div class="col-sm-6">
           <h2>Thêm phim mới</h2>
-          <form action="/movies" method="POST">
+          <form action="/api/movies/post" method="POST">
             <div class="form-group">
               <label for="title">Tên phim:</label>
               <input type="text" name="title" class="form-control" />
@@ -91,9 +99,25 @@
               </div>
               <button type="submit" class="btn btn-primary">Thêm phim</button>
               </form>
+              
               </div>
               </div>
               </div>
               
                 </body>
-              </html>
+                  <script>
+                    //alert('Xin chao!')
+
+$.ajax({
+    url: '/dashboard',
+    type:'GET'
+})
+.then(data=>{
+  const element = data[i];
+})
+.catch(err=>{
+    console.log('API loi');
+})
+
+                  </script>
+                </html>

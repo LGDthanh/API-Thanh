@@ -3,7 +3,7 @@ const router = express.Router();
 const Movie = require('../models/movie');
 
 router.get('/', function(req, res) {
-  res.render('movies');
+  res.render('api/movies/post');
 });
 
 router.post('/', function(req, res) {
